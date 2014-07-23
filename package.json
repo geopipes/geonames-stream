@@ -1,0 +1,36 @@
+{
+  "name": "geonames-stream",
+  "author": "mapzen",
+  "version": "0.0.0",
+  "description": "Streaming geonames parser",
+  "homepage": "https://github.com/geopipes/geonames-stream",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/geopipes/geonames-stream.git"
+  },
+  "keywords": [
+    "geonames",
+    "stream",
+    "parser"
+  ],
+  "bugs": {
+    "url": "https://github.com/geopipes/geonames-stream/issues"
+  },
+  "engines": {
+    "node": ">=0.10.26",
+    "npm": ">=1.4.3"
+  },
+  "dependencies": {
+    "unzip": "^0.1.9",
+    "csv-parse": "0.0.5",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "request": "^2.38.0"
+  }
+}
