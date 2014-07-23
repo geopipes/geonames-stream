@@ -6,6 +6,10 @@ $ npm install geonames-stream
 
 [![NPM](https://nodei.co/npm/geonames-stream.png?downloads=true&stars=true)](https://nodei.co/npm/geonames-stream)
 
+Note: you will need `node` and `npm` installed first.
+
+The easiest way to install `node.js` is with [nave.sh](https://github.com/isaacs/nave) by executing `[sudo] ./nave.sh usemain stable`
+
 ## Usage
 
 You can extract the geonames on-the-fly while you're still downloading the file:
