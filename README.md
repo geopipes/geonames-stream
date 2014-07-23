@@ -33,6 +33,8 @@ fs.createReadStream( 'NZ.zip' )
   .pipe( process.stdout );
 ```
 
+## Roll your own
+
 The easiest way to get started writing your own pipes is to use `through2`; just make sure you call `next()`.
 
 ```javascript
