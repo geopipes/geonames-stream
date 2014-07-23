@@ -33,6 +33,28 @@ fs.createReadStream( 'NZ.zip' )
   .pipe( process.stdout );
 ```
 
+The easiest way to get started writing your own pipes is to use `through2`; just make sure you call `next()`.
+
+```javascript
+var geonames = require('geonames-stream'),
+    request = require('request'),
+    through = require('through2');
+
+request.get( 'http://download.geonames.org/export/dump/NZ.zip' )
+  .pipe( geonames )
+  .pipe( through.obj( function( data, enc, next ){
+    console.log( data._id, data.name, data.population );
+    next();
+  }));
+```
+
+```bash
+2189529 Invercargill 47287
+2189530 Invercargill 0
+2189531 Inveagh Bay 0
+2189532 Inumia Stream 0
+```
+
 ## Schema
 
 The streams output objects which look like this:
