@@ -19,7 +19,7 @@ var geonames = require('geonames-stream'),
     request = require('request');
 
 request.get( 'http://download.geonames.org/export/dump/NZ.zip' )
-  .pipe( geonames )
+  .pipe( geonames.pipeline )
   .pipe( geonames.stringify )
   .pipe( process.stdout );
 ```
@@ -32,7 +32,7 @@ var geonames = require('geonames-stream'),
 
 // wget http://download.geonames.org/export/dump/NZ.zip
 fs.createReadStream( 'NZ.zip' )
-  .pipe( geonames )
+  .pipe( geonames.pipeline )
   .pipe( geonames.stringify )
   .pipe( process.stdout );
 ```
@@ -47,7 +47,7 @@ var geonames = require('geonames-stream'),
     through = require('through2');
 
 request.get( 'http://download.geonames.org/export/dump/NZ.zip' )
-  .pipe( geonames )
+  .pipe( geonames.pipeline )
   .pipe( through.obj( function( data, enc, next ){
     console.log( data._id, data.name, data.population );
     next();
@@ -87,6 +87,28 @@ The streams output objects which look like this:
   "timezone": "Pacific/Auckland",
   "modification_date": "2011-08-01"
 }
+```
+
+## The generic pipeline
+
+The module comes with a prebuild processing pipeline to make life easier:
+
+```javascript
+geonames.pipeline = ( geonames.unzip ).pipe( geonames.parser ).pipe( geonames.modifiers )
+```
+
+If you need more control, you can re-wire things as you wish; say.. maybe you didn't want the unzip step?
+
+```javascript
+var geonames = require('geonames-stream'),
+    request = require('request');
+
+request.get( 'http://example.com/example.tsv' )
+  // .pipe( geonames.unzip ) I don't want the unzip step
+  .pipe( geonames.parser )
+  .pipe( geonames.modifiers )
+  .pipe( geonames.stringify )
+  .pipe( process.stdout );
 ```
 
 ## NPM Module

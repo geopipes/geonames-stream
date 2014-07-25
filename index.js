@@ -1,45 +1,29 @@
 
 var through = require('through2'),
-    tsvparser = require('./lib/tsvparser'),
-    unzip = require('unzip'),
-    iostream;
+    stringify = require('./lib/stringify'),
+    parser = require('./lib/tsvparser')(),
+    unzip = require('./lib/unzip'),
+    bun = require('bun');
 
-// This pipeline is a bit messy but works fine.
-var pipeline = unzip.Parse()
-  .on( 'error', console.error.bind( console ) )
-  .on( 'entry', function( entry ) {
-    if( entry.props.path.match( 'readme' ) ) return; // skip readme files
+// bundle the modification streams in to a pipeline
+var modifiers = bun([
 
-    // parse the tsv file in to rows of data
-    entry.pipe( tsvparser() )
+  // convert alternative names from comma seperated string to an array
+  through.obj( require('./lib/alternative_names') )
 
-      // run through a series of functions which
-      // modify and augments the geonames data.
-      .pipe( through.obj( require('./lib/alternative_names') ) )
+  // add more data modifiers here..
+]);
 
-      // pipe modified data back to the iostream
-      .pipe( through.obj( function( data, enc, next ){
-        iostream.push( data, enc );
-        next();
-      }));
-  });
+// bundle a pipeline for the most common use-case
+var pipeline = bun([ unzip, parser, modifiers ]);
 
-// create a stream which proxies input to the pipeline
-// and allows abritrary writes back to the output
-iostream = through.obj( function( data, enc, next ){
-  pipeline.write( data, enc, next );
-});
+// export everything
+var geonames = {
+  unzip: unzip,
+  parser: parser,
+  modifiers: modifiers,
+  stringify: stringify,
+  pipeline: pipeline
+};
 
-// this has to be manually disabled in node 'v0.10.26'
-// for some unknown reason or it fatally throws:
-// Error: stream.push() after EOF
-iostream.end = function(){}
-
-// convenience function for converting object streams
-// back to strings
-iostream.stringify = through.obj( function( data, enc, next ){
-  this.push( JSON.stringify( data, null, 2 ), 'utf-8' );
-  next();
-});
-
-module.exports = iostream;
+module.exports = geonames;

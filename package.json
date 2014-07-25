@@ -26,9 +26,10 @@
     "npm": ">=1.4.3"
   },
   "dependencies": {
-    "unzip": "^0.1.9",
+    "bun": "0.0.10",
     "csv-parse": "0.0.5",
-    "through2": "^0.5.1"
+    "through2": "^0.5.1",
+    "unzip": "^0.1.9"
   },
   "devDependencies": {
     "request": "^2.38.0"

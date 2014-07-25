@@ -4,6 +4,6 @@ var geonames = require('../'),
 
 // wget http://download.geonames.org/export/dump/NZ.zip
 fs.createReadStream( 'NZ.zip' )
-  .pipe( geonames )
+  .pipe( geonames.pipeline )
   .pipe( geonames.stringify )
   .pipe( process.stdout );
