@@ -94,7 +94,7 @@ The streams output objects which look like this:
 The module comes with a prebuild processing pipeline to make life easier:
 
 ```javascript
-geonames.pipeline = ( geonames.unzip ).pipe( geonames.parser ).pipe( geonames.modifiers )
+geonames.pipeline = geonames.unzip.pipe( geonames.parser ).pipe( geonames.modifiers )
 ```
 
 If you need more control, you can re-wire things as you wish; say.. maybe you didn't want the unzip step?
