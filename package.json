@@ -28,7 +28,6 @@
   "dependencies": {
     "bun": "0.0.10",
     "byline": "^4.1.1",
-    "csv-parse": "0.0.5",
     "through2": "^0.5.1",
     "unzip": "^0.1.9"
   },
