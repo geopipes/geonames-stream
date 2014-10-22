@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "bun": "0.0.10",
-    "csv-parse": "0.0.5",
+    "byline": "^4.1.1",
     "through2": "^0.5.1",
     "unzip": "^0.1.9"
   },

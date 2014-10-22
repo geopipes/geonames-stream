@@ -105,8 +105,8 @@ var geonames = require('geonames-stream'),
 
 request.get( 'http://example.com/example.tsv' )
   // .pipe( geonames.unzip ) I don't want the unzip step
-  .pipe( geonames.parser )
-  .pipe( geonames.modifiers )
+  .pipe( geonames.parser() )
+  .pipe( geonames.modifiers() )
   .pipe( geonames.stringify )
   .pipe( process.stdout );
 ```
