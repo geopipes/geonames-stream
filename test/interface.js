@@ -14,18 +14,24 @@ module.exports.interface.unzip = function(test, common) {
 
 module.exports.interface.parser = function(test, common) {
   test('parser', function(t) {
-    t.equal(typeof geonames.parser, 'object', 'valid function');
-    t.equal(typeof geonames.parser._read, 'function', 'valid readable');
-    t.equal(typeof geonames.parser._write, 'function', 'valid writeable');
+    t.equal(typeof geonames.parser, 'function', 'valid function');
+
+    var p = geonames.parser();
+    t.equal(typeof p, 'object', 'valid stream');
+    t.equal(typeof p._read, 'function', 'valid readable');
+    t.equal(typeof p._write, 'function', 'valid writeable');
     t.end();
   });
 }
 
 module.exports.interface.modifiers = function(test, common) {
   test('modifiers', function(t) {
-    t.equal(typeof geonames.modifiers, 'object', 'valid function');
-    t.equal(typeof geonames.modifiers._read, 'function', 'valid readable');
-    t.equal(typeof geonames.modifiers._write, 'function', 'valid writeable');
+    t.equal(typeof geonames.modifiers, 'function', 'valid function');
+
+    var m = geonames.parser();
+    t.equal(typeof m, 'object', 'valid stream');
+    t.equal(typeof m._read, 'function', 'valid readable');
+    t.equal(typeof m._write, 'function', 'valid writeable');
     t.end();
   });
 }
