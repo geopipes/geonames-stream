@@ -3,7 +3,8 @@ var through = require('through2'),
     stringify = require('./lib/stringify'),
     parser = require('./lib/tsvparser'),
     unzip = require('./lib/unzip'),
-    bun = require('bun');
+    bun = require('bun'),
+    split = require('split');
 
 // bundle the modification streams in to a pipeline
 var modifiers = function(){
@@ -17,7 +18,7 @@ var modifiers = function(){
 };
 
 // bundle a pipeline for the most common use-case
-var pipeline = bun([ unzip, parser(), modifiers() ]);
+var pipeline = bun([ unzip(), split(), parser(), modifiers() ]);
 
 // export everything
 var geonames = {
