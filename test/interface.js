@@ -5,9 +5,11 @@ module.exports.interface = {};
 
 module.exports.interface.unzip = function(test, common) {
   test('unzip', function(t) {
-    t.equal(typeof geonames.unzip, 'object', 'valid function');
-    t.equal(typeof geonames.unzip._read, 'function', 'valid readable');
-    t.equal(typeof geonames.unzip._write, 'function', 'valid writeable');
+    t.equal(typeof geonames.unzip, 'function', 'valid function');
+
+    var u = geonames.unzip();
+    t.equal(typeof u._read, 'function', 'valid readable');
+    t.equal(typeof u._write, 'function', 'valid writeable');
     t.end();
   });
 }
