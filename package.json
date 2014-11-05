@@ -1,7 +1,7 @@
 {
   "name": "geonames-stream",
   "author": "mapzen",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Streaming geonames parser",
   "homepage": "https://github.com/geopipes/geonames-stream",
   "license": "MIT",
