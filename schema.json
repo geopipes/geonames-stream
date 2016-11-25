@@ -7,5 +7,8 @@
   "alternate_names": [
     "alternate_name_id", "geoname_id", "iso_language", "alternate_name",
     "is_preferred_name", "is_short_name", "is_colloquial", "is_historic"
+  ],
+  "hierarchy": [
+    "parent_id", "child_id", "type"
   ]
 }
