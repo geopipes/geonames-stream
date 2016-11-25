@@ -10,5 +10,8 @@
   ],
   "hierarchy": [
     "parent_id", "child_id", "type"
+  ],
+  "user_tags": [
+    "geoname_id", "tag"
   ]
 }
