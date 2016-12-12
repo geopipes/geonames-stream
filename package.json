@@ -22,7 +22,7 @@
     "url": "https://github.com/geopipes/geonames-stream/issues"
   },
   "engines": {
-    "node": ">=0.10.26",
+    "node": ">=4.0.0",
     "npm": ">=1.4.3"
   },
   "dependencies": {
