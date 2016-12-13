@@ -30,7 +30,7 @@
     "unzipper": "^0.7.2",
     "readable-stream": "^1.0.33",
     "split": "^1.0.0",
-    "through2": "^0.5.1"
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "request": "^2.38.0",
