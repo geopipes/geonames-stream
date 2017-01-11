@@ -22,19 +22,19 @@
     "url": "https://github.com/geopipes/geonames-stream/issues"
   },
   "engines": {
-    "node": ">=0.10.26",
+    "node": ">=4.0.0",
     "npm": ">=1.4.3"
   },
   "dependencies": {
     "bun": "0.0.10",
-    "unzip": "https://github.com/glebdmitriew/node-unzip-2/tarball/master",
-    "readable-stream": "^1.0.33",
-    "split": "^0.3.1",
-    "through2": "^0.5.1"
+    "unzipper": "^0.7.2",
+    "readable-stream": "^2.2.2",
+    "split": "^1.0.0",
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "request": "^2.38.0",
-    "tape": "^2.13.4",
-    "tap-spec": "^0.2.0"
+    "tape": "^4.6.3",
+    "tap-spec": "^4.1.1"
   }
 }
