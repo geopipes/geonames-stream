@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "bun": "0.0.10",
-    "unzipper": "^0.7.2",
+    "unzipper": "^0.10.11",
     "readable-stream": "^2.2.2",
     "split": "^1.0.0",
     "through2": "^2.0.3"
