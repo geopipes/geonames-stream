@@ -26,7 +26,7 @@
     "npm": ">=1.4.3"
   },
   "dependencies": {
-    "bun": "0.0.10",
+    "bun": "1.1.30",
     "unzipper": "^0.10.11",
     "readable-stream": "^2.2.2",
     "split": "^1.0.0",
